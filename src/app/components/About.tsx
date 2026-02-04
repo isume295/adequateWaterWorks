@@ -1,6 +1,7 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function About() {
   const features = [
@@ -8,6 +9,22 @@ export default function About() {
     "Skilled Professional Team:",
     "Commitment to Safety",
   ];
+
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById("contact");
+    
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
 
   return (
     <section
@@ -57,12 +74,13 @@ export default function About() {
                 ))}
               </div>
 
-              <Link
-                href="#about-more"
+              <a
+                href="#contact"
+                onClick={handleScrollToContact}
                 className="btn btn-primary max-w-[200px]"
               >
                 Contact Us Now!
-              </Link>
+              </a>
             </div>
           </div>
 

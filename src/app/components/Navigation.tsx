@@ -17,8 +17,35 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Smooth scroll handler
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    // Handle home/top scroll
+    if (href === "#" || href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // Scroll to section
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      const navHeight = 80; // Height of fixed navigation
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "#home" },
     { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
   ];
@@ -34,7 +61,11 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="#" className="flex items-center gap-3 group">
+          <Link 
+            href="#home" 
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="flex items-center gap-3 group"
+          >
             <div className="relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
               <Image
                 src="/aquabuild_logo_1765906627283.png"
@@ -59,6 +90,7 @@ export default function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`text-sm font-medium transition-colors duration-300 hover:text-orange-500 ${
                   isScrolled ? "text-gray-700" : "text-white"
                 }`}
@@ -66,7 +98,11 @@ export default function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <Link href="#quote" className="btn btn-primary">
+            <Link 
+              href="#contact" 
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="btn btn-primary"
+            >
               Get A Quote
             </Link>
           </div>
@@ -108,7 +144,7 @@ export default function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`text-sm font-medium py-2 transition-colors duration-300 hover:text-orange-500 ${
                   isScrolled ? "text-gray-700" : "text-white"
                 }`}
@@ -117,8 +153,8 @@ export default function Navigation() {
               </Link>
             ))}
             <Link
-              href="#quote"
-              onClick={() => setIsMobileMenuOpen(false)}
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
               className="btn btn-primary w-full"
             >
               Contact Us

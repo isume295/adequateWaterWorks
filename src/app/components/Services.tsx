@@ -1,7 +1,24 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
 export default function Services() {
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById("contact");
+    
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
   const services = [
     {
       icon: "/icon_marine_1765906681366.png",
@@ -159,7 +176,11 @@ export default function Services() {
             Every project is unique. Contact us to discuss your specific water
             construction needs and get a tailored solution.
           </p>
-          <a href="#contact" className="btn btn-primary inline-block">
+          <a 
+            href="#contact" 
+            onClick={handleScrollToContact}
+            className="btn btn-primary inline-block"
+          >
             Contact Us Today
           </a>
         </div>

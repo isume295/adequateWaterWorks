@@ -1,6 +1,7 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Hero() {
   const services = [
@@ -21,8 +22,24 @@ export default function Hero() {
     },
   ];
 
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -48,9 +65,13 @@ export default function Hero() {
           <p className="text-xl md:text-2xl text-white/90 font-light mb-8 max-w-xl">
             Building A Better Water Infrastructure
           </p>
-          <Link href="#services" className="btn btn-secondary inline-block">
+          <a 
+            href="#services" 
+            onClick={(e) => handleScrollToSection(e, "services")}
+            className="btn btn-secondary inline-block"
+          >
             Learn More
-          </Link>
+          </a>
         </div>
       </div>
       {/* Service Cards */}
