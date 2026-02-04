@@ -18,7 +18,10 @@ export default function Navigation() {
   }, []);
 
   // Smooth scroll handler
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
 
@@ -31,7 +34,7 @@ export default function Navigation() {
     // Scroll to section
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const navHeight = 80; // Height of fixed navigation
       const elementPosition = element.getBoundingClientRect().top;
@@ -39,7 +42,7 @@ export default function Navigation() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -61,8 +64,8 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link 
-            href="#home" 
+          <Link
+            href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
             className="flex items-center gap-3 group"
           >
@@ -98,12 +101,12 @@ export default function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <Link 
-              href="#contact" 
+            <Link
+              href="#contact"
               onClick={(e) => handleNavClick(e, "#contact")}
               className="btn btn-primary"
             >
-              Get A Quote
+              Contact Us
             </Link>
           </div>
 
