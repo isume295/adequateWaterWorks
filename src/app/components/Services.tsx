@@ -84,11 +84,13 @@ export default function Services() {
     >
       <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl lg:text-5xl font-black text-blue-900 mb-4">
-            OUR SERVICES
-          </h2>
-          <div className="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+        <div className="text-center flex justify-center items-center flex-col gap-3 mb-16 animate-fade-in-up">
+          <div className="flex flex-col  mb-16 justify-center items-center">
+            <h2 className="text-4xl lg:text-5xl font-black text-blue-900 mb-4">
+              OUR SERVICES
+            </h2>
+            <div className="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+          </div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Comprehensive water construction solutions tailored to meet your
             project needs. From groundwater management to infrastructure
@@ -97,64 +99,59 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Service Icon Header */}
-              <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-300"></div>
-                <div className="relative w-20 h-20 mx-auto mb-4">
-                  <Image
-                    src={service.icon}
-                    alt={service.title}
-                    fill
-                    className="object-contain filter brightness-0 invert"
-                  />
+        <div
+          className="p-10 "
+          style={{ paddingTop: "40px", paddingBottom: "40px" }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
+              >
+                {/* Service Icon Header */}
+                <div
+                  style={{ padding: "20px" }}
+                  className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 text-center relative overflow-hidden"
+                >
+                  <h3 className="text-xl font-bold text-white relative">
+                    {service.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-white relative">
-                  {service.title}
-                </h3>
-              </div>
 
-              {/* Service Content */}
-              <div className="p-6">
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  {service.description}
-                </p>
+                {/* Service Content */}
+                <div
+                  className="p-6 flex flex-col justify-between items-start"
+                  style={{ padding: "20px" }}
+                >
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
 
-                {/* Features List */}
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <div className="checkmark mt-0.5"></div>
-                      <span className="text-sm text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Learn More Link */}
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <a
-                    href="#contact"
-                    className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors inline-flex items-center gap-2 group/link"
-                  >
-                    Get a Quote
-                    <span className="group-hover/link:translate-x-1 transition-transform">
-                      →
-                    </span>
-                  </a>
+                  {/* Features List */}
+                  <ul className="space-y-3">
+                    {service.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-end gap-2 "
+                        style={{ marginTop: "10px" }}
+                      >
+                        <div className="checkmark mt-0.5"></div>
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg p-12 shadow-2xl animate-fade-in-up">
+        <div
+          style={{ padding: "20px" }}
+          className="mt-16 text-center flex flex-col justify-center items-center gap-4 bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg p-12 shadow-2xl animate-fade-in-up"
+        >
           <h3 className="text-3xl font-black text-white mb-4">
             Need a Custom Solution?
           </h3>
