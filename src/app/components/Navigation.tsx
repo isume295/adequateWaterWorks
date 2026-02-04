@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,25 +13,22 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-md'
-          : 'bg-gradient-to-r from-blue-900/95 to-blue-800/95'
+          ? "bg-white shadow-md"
+          : "bg-gradient-to-r from-blue-900/95 to-blue-800/95"
       }`}
     >
       <div className="container">
@@ -49,7 +46,7 @@ export default function Navigation() {
             </div>
             <span
               className={`text-xl font-black transition-colors duration-300 ${
-                isScrolled ? 'text-blue-900' : 'text-white'
+                isScrolled ? "text-blue-900" : "text-white"
               }`}
             >
               ADEQUATE WATER WORKS
@@ -63,7 +60,7 @@ export default function Navigation() {
                 key={link.name}
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-300 hover:text-orange-500 ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
+                  isScrolled ? "text-gray-700" : "text-white"
                 }`}
               >
                 {link.name}
@@ -83,18 +80,18 @@ export default function Navigation() {
             <div className="w-6 h-5 flex flex-col justify-between">
               <span
                 className={`block h-0.5 w-full transition-all duration-300 ${
-                  isScrolled ? 'bg-gray-900' : 'bg-white'
-                } ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
+                  isScrolled ? "bg-gray-900" : "bg-white"
+                } ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
               ></span>
               <span
                 className={`block h-0.5 w-full transition-all duration-300 ${
-                  isScrolled ? 'bg-gray-900' : 'bg-white'
-                } ${isMobileMenuOpen ? 'opacity-0' : ''}`}
+                  isScrolled ? "bg-gray-900" : "bg-white"
+                } ${isMobileMenuOpen ? "opacity-0" : ""}`}
               ></span>
               <span
                 className={`block h-0.5 w-full transition-all duration-300 ${
-                  isScrolled ? 'bg-gray-900' : 'bg-white'
-                } ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+                  isScrolled ? "bg-gray-900" : "bg-white"
+                } ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
               ></span>
             </div>
           </button>
@@ -103,7 +100,7 @@ export default function Navigation() {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
+            isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
           }`}
         >
           <div className="flex flex-col gap-4 pt-4">
@@ -113,7 +110,7 @@ export default function Navigation() {
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-sm font-medium py-2 transition-colors duration-300 hover:text-orange-500 ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
+                  isScrolled ? "text-gray-700" : "text-white"
                 }`}
               >
                 {link.name}
@@ -124,7 +121,7 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="btn btn-primary w-full"
             >
-              Get A Quote
+              Contact Us
             </Link>
           </div>
         </div>
