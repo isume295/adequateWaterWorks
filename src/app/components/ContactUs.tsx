@@ -16,7 +16,10 @@ export const ContactUs = () => {
     {
       icon: "✉️",
       title: "Email Address",
-      details: ["info@adequatewaterworks.com", "contact@adequatewaterworks.com"],
+      details: [
+        "info@adequatewaterworks.com",
+        "contact@adequatewaterworks.com",
+      ],
     },
     {
       icon: "🕒",
@@ -32,11 +35,13 @@ export const ContactUs = () => {
     >
       <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl lg:text-5xl font-black text-blue-900 mb-4">
-            GET IN TOUCH
-          </h2>
-          <div className="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+        <div className="text-center flex justify-center items-center flex-col gap-3 mb-16 animate-fade-in-up">
+          <div className="flex flex-col  mb-16 justify-center items-center">
+            <h2 className="text-4xl lg:text-5xl font-black text-blue-900 mb-4">
+              GET IN TOUCH
+            </h2>
+            <div className="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+          </div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Ready to start your water construction project? Contact us today for
             a free consultation and quote.
@@ -44,7 +49,10 @@ export const ContactUs = () => {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16"
+          style={{ paddingTop: "30px" }}
+        >
           {/* Left Column - Contact Information */}
           <div className="order-2 lg:order-1 animate-slide-left">
             <div className="flex flex-col gap-6">
@@ -64,6 +72,7 @@ export const ContactUs = () => {
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
+                    style={{ padding: "10px" }}
                     className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-900"
                   >
                     <div className="flex items-start gap-4">
@@ -106,8 +115,9 @@ export const ContactUs = () => {
                       type="text"
                       name="first-name"
                       autoComplete="given-name"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:border-blue-900 focus:outline-none transition-colors text-gray-800"
+                      className="w-full px-4 py-6 border-2 border-gray-200 rounded-md focus:border-blue-900 focus:outline-none transition-colors text-gray-800"
                       placeholder="John"
+                      style={{ padding: "5px" }}
                       required
                     />
                   </div>
@@ -125,6 +135,7 @@ export const ContactUs = () => {
                       autoComplete="family-name"
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:border-blue-900 focus:outline-none transition-colors text-gray-800"
                       placeholder="Doe"
+                      style={{ padding: "5px" }}
                       required
                     />
                   </div>
@@ -145,6 +156,7 @@ export const ContactUs = () => {
                     autoComplete="email"
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:border-blue-900 focus:outline-none transition-colors text-gray-800"
                     placeholder="john.doe@example.com"
+                    style={{ padding: "5px" }}
                     required
                   />
                 </div>
@@ -164,6 +176,7 @@ export const ContactUs = () => {
                     autoComplete="tel"
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:border-blue-900 focus:outline-none transition-colors text-gray-800"
                     placeholder="+251 9XX XXX XXX"
+                    style={{ padding: "5px" }}
                   />
                 </div>
 
@@ -182,6 +195,7 @@ export const ContactUs = () => {
                     autoComplete="organization"
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:border-blue-900 focus:outline-none transition-colors text-gray-800"
                     placeholder="Your Company Name"
+                    style={{ padding: "5px" }}
                   />
                 </div>
 
